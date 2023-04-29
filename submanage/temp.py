@@ -37,15 +37,13 @@ def create_subdomain_dns_record(subdomain):
         "name": record_name,
         "content": record_content,
         "ttl": record_ttl,
-        "proxied": True
+        "proxied": True,
     }
 
     # Add DNS record to CloudFlare
     result = cf.zones.dns_records.post(zone_id, data=dns_record)
     print(result)
     # Check if DNS record was added successfully
-
-
 
 
 def build_config(site_name: str, root_dir: str) -> dict:

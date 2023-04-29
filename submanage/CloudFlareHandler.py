@@ -32,7 +32,7 @@ def create_subdomain_dns_record(subdomain: str):
         "name": record_name,
         "content": record_content,
         "ttl": record_ttl,
-        "proxied": True
+        "proxied": True,
     }
 
     # Add DNS record to CloudFlare

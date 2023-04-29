@@ -108,7 +108,7 @@ def add_permissions(path: os.path):
     )  # 33 is the uid and gid of www-data on most Linux systems
 
 
-def create_new_site(site_name: str,base_domain:bool=False):
+def create_new_site(site_name: str, base_domain: bool = False):
     nginx_path = "/etc/nginx/sites-available"
     filename = site_name
     site_config_path = os.path.join(nginx_path, filename + ".conf")
@@ -125,6 +125,8 @@ def create_new_site(site_name: str,base_domain:bool=False):
         create_subdomain_dns_record(filename)
     crete_database_for_wordpress(filename.split(".")[0])
     restart_nginx()
+
+
 # todo create a site for base domain
 # DONE auto zone name detection
 # todo add SSL certificate
