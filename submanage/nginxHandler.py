@@ -121,7 +121,8 @@ def create_new_site(site_name: str,base_domain:bool=False):
     copy_wordpress_files(wordpress_dir)
     add_permissions(wordpress_dir)
     create_symbolic_link_to_site_enabled(site_config_path, filename)
-    create_subdomain_dns_record(filename)
+    if not base_domain:
+        create_subdomain_dns_record(filename)
     crete_database_for_wordpress(filename.split(".")[0])
     restart_nginx()
 # todo create a site for base domain

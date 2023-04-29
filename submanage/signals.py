@@ -19,7 +19,7 @@ def create_base_site(sender, instance, created, **kwargs):
     """
     if created:
         site = instance
-        create_new_site(site.get_full_domain())
+        create_new_site(site.get_full_domain(),base_domain=True)
 
 
 def delete_site(sender, instance, **kwargs):
