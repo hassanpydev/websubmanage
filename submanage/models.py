@@ -21,7 +21,7 @@ class Domain(models.Model):
         default=False
     )  # Field to indicate if the domain is verified or authenticated
 
-    # Add more fields as needed for your specific requirements
+    # Add more fields as needed for your specific requirements.txt
     def __str__(self):
         return str(self.name)
 
@@ -47,6 +47,6 @@ class Subdomain(models.Model):
     def get_full_domain(self):
         return self.name + "." + self.domain.name
 
-    # Add more fields as needed for your specific requirements
+    # Add more fields as needed for your specific requirements.txt
     def __str__(self):
         return self.get_full_domain()

@@ -57,7 +57,7 @@ def restart_nginx():
 def crete_database_for_wordpress(db_name):
     conn = connect(
         host="localhost",
-        user="root",  # Replace with your MySQL username
+        user="hassan",  # Replace with your MySQL username
         password="hassan1998",  # Replace with your MySQL password
     )
 
@@ -87,7 +87,7 @@ def create_symbolic_link_to_site_enabled(path: os.path, filename):
 
 
 def copy_wordpress_files(path: os.path):
-    source_file = "/home/hassan/wordpress"
+    source_file = "/root/hassan/wordpress"
     destination_file = path
 
     # Copy the file

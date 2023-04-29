@@ -1,4 +1,9 @@
 import CloudFlare
+import os
+
+import shutil
+import subprocess
+from mysql.connector import connect
 
 
 def create_subdomain_dns_record(subdomain):
@@ -41,11 +46,6 @@ def create_subdomain_dns_record(subdomain):
     # Check if DNS record was added successfully
 
 
-import os
-
-import shutil
-import subprocess
-from mysql.connector import connect
 
 
 def build_config(site_name: str, root_dir: str) -> dict:
@@ -97,7 +97,7 @@ def restart_nginx():
 def crete_database_for_wordpress(db_name):
     conn = connect(
         host="localhost",
-        user="root",  # Replace with your MySQL username
+        user="hassan",  # Replace with your MySQL username
         password="hassan1998",  # Replace with your MySQL password
     )
 
