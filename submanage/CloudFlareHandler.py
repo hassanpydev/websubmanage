@@ -1,14 +1,14 @@
 import CloudFlare
 
 
-def create_subdomain_dns_record(subdomain,zone_name=None):
+def create_subdomain_dns_record(subdomain: str):
     cf = CloudFlare.CloudFlare(
         certtoken="v1.0-4ecb6fa2b427c0ec2b66a91c-9b92e59583349702eeb76ee5fee4eab750537c49d011842605e6bb166fc4c14df36781936a3fe92c55e433ccce5ae9085369907a09873fb9e0d60d2a37039e0ab8d4b889bb08a79b35",
         email="akraaonline@gmail.com",
         token="e535e60c2fd491a5b17c1fffac1faecf274da",
     )
     zones = cf.zones.get()
-    zone_name = "osamahalmutairi.com"
+    zone_name = ".".join(d for d in subdomain.split(".")[1:])
 
     zone_id = None
     for zone in zones:

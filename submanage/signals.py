@@ -1,10 +1,19 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from .models import Subdomain
+from .models import Subdomain, Domain
 from .nginxHandler import create_new_site
 
 
 def create_site(sender, instance, created, **kwargs):
+    """
+    Create profile when user is created
+    """
+    if created:
+        site = instance
+        create_new_site(site.get_full_domain())
+
+
+def create_base_site(sender, instance, created, **kwargs):
     """
     Create profile when user is created
     """
@@ -22,4 +31,5 @@ def delete_site(sender, instance, **kwargs):
 
 
 post_save.connect(create_site, sender=Subdomain)
+post_save.connect(create_base_site, sender=Domain)
 post_delete.connect(delete_site, sender=Subdomain)
