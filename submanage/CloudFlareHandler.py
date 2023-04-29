@@ -8,7 +8,7 @@ def create_subdomain_dns_record(subdomain,zone_name=None):
         token="e535e60c2fd491a5b17c1fffac1faecf274da",
     )
     zones = cf.zones.get()
-    zone_name = "websubmange.com"
+    zone_name = "osamahalmutairi.com"
 
     zone_id = None
     for zone in zones:
