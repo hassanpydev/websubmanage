@@ -18,7 +18,7 @@ def create_base_site(sender, instance, created, **kwargs):
     Create profile when user is created
     """
     if created:
-        site:Domain = instance
+        site: Domain = instance
         create_new_site(site.name, base_domain=True)
 
 

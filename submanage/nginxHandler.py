@@ -62,6 +62,7 @@ def crete_database_for_wordpress(db_name):
     )
 
     # Create a new database
+    db_name = db_name.replace("-", "_")
     cursor = conn.cursor()
     cursor.execute(f"CREATE DATABASE {db_name}")
 
@@ -127,7 +128,7 @@ def create_new_site(site_name: str, base_domain: bool = False):
     restart_nginx()
 
 
-# todo create a site for base domain
+# DONE create a site for base domain
 # DONE auto zone name detection
 # todo add SSL certificate
 # todo auto setup for wordpress
