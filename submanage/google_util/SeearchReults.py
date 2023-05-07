@@ -52,5 +52,5 @@ def get_search_results(query_string: str, domain: str):
         for question in ppl_asks:
             article = create_article(question.get("question"))
 
-            create_post(title=question.get("question"), content=article)
+            create_post(title=question.get("question"), content=article,site=domain)
             print("Post created successfully")

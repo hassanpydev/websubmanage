@@ -17,14 +17,14 @@ def generate_slug(post_title):
     return slug
 
 
-def create_post(title, content):
+def create_post(title, content,domain):
     """
     a function to create a post in the wordpress
     @param title: the title of the article
     @param content: the body of the article
     @return:
     """
-    url = "https://kok.saudi-basf.com/wp-json/wp/v2/posts"
+    url = f"https://{domain}/wp-json/wp/v2/posts"
     post = {
         "title": title,
         "status": "publish",
