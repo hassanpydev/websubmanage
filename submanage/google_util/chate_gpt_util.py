@@ -27,4 +27,3 @@ def rephrase_title(title: str) -> dict:
         ],
     )
     return response
-create_article("ميسي")
