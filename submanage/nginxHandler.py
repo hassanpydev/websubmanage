@@ -127,7 +127,10 @@ def create_new_site(site_name: str, base_domain: bool = False):
     add_permissions(wordpress_dir)
     create_symbolic_link_to_site_enabled(site_config_path, filename)
     if not base_domain:
-        create_subdomain_dns_record(filename)
+        try:
+            create_subdomain_dns_record(filename)
+        except BaseException as e:
+            print("Failed to create subdomain dns record for site '%s': %s" % (site_name , e))
     crete_database_for_wordpress(filename.split(".")[0])
     restart_nginx()
 
