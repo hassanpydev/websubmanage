@@ -130,5 +130,5 @@ def create_new_site(site_name: str, base_domain: bool = False):
 
 # DONE create a site for base domain
 # DONE auto zone name detection
-# todo add SSL certificate
+# DONE add SSL certificate
 # todo auto setup for wordpress

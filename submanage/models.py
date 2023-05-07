@@ -50,3 +50,29 @@ class Subdomain(models.Model):
     # Add more fields as needed for your specific requirements.txt
     def __str__(self):
         return self.get_full_domain()
+
+
+from django.db import models
+
+
+class Keyword(models.Model):
+    word = models.CharField(max_length=100, unique=True)
+    subdomain = models.ForeignKey(Subdomain, on_delete=models.CASCADE)
+    follow_releated_search = models.BooleanField(default=False)
+    follow_ppl_also_ask = models.BooleanField(default=False)
+    max_results = models.PositiveIntegerField(default=10)
+    frequency = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.word
+
+    def save(self, *args, **kwargs):
+        existing_keyword = Keyword.objects.filter(word=self.word).first()
+        if existing_keyword:
+            # Keyword already exists, update the frequency instead of creating a new entry
+            existing_keyword.frequency += 1
+            existing_keyword.save()
+        else:
+            super().save(*args, **kwargs)
