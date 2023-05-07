@@ -64,11 +64,15 @@ def crete_database_for_wordpress(db_name):
     # Create a new database
     db_name = db_name.replace("-", "_")
     cursor = conn.cursor()
-    cursor.execute(f"CREATE DATABASE {db_name}")
+    try:
+        cursor.execute(f"CREATE DATABASE {db_name}")
 
     # Commit the transaction and close the connection
-    conn.commit()
-    conn.close()
+        conn.commit()
+    except BaseException as e:
+        print("Database creation failed with error: {}".format(e))
+    finally:
+        conn.close()
 
     print(f"Database '{db_name}' created successfully.")
 
