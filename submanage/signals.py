@@ -29,7 +29,6 @@ def add_new_keyword(sender, instance, created, **kwargs):
     if created:
         keyword: Keyword = instance
         Thread(get_search_results(query_string=keyword.word, domain=keyword.subdomain.get_full_domain())).start()
-        return
 
 
 def delete_site(sender, instance, **kwargs):
