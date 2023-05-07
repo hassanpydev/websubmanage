@@ -1,4 +1,4 @@
-API_KEY = "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"
+API_KEY = "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"
 # Note: you need to be using OpenAI Python v0.27.0 for the code below to work
 import openai
 
@@ -27,3 +27,4 @@ def rephrase_title(title: str) -> dict:
         ],
     )
     return response
+create_article("ميسي")
