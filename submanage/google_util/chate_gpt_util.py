@@ -1,4 +1,4 @@
-API_KEY = "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"
+API_KEY = "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"
 # Note: you need to be using OpenAI Python v0.27.0 for the code below to work
 import openai
 
