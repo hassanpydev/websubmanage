@@ -17,20 +17,20 @@ def generate_slug(post_title):
     return slug
 
 
-def create_post(title, content,domain):
+def create_post(title, content, site):
     """
     a function to create a post in the wordpress
     @param title: the title of the article
     @param content: the body of the article
     @return:
     """
-    url = f"https://{domain}/wp-json/wp/v2/posts"
+    url = f"https://{site}/wp-json/wp/v2/posts"
     post = {
         "title": title,
         "status": "publish",
         "content": f"{content}",
         "categories": 2,
-        "type": "question",
+        "post_type": "question",
         "slug": generate_slug(title),
         "date": "2022-02-17T10:00:00",
     }
@@ -46,5 +46,3 @@ def create_post(title, content,domain):
         )
         return response.json()
     response.raise_for_status()
-
-
